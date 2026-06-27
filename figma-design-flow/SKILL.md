@@ -11,6 +11,8 @@ Converts Figma designs into structured design documentation, implementation blue
 
 All state, caching, and snapshot management is delegated to the Figma MCP. Do NOT persist state locally.
 
+**MCP server preference**: Use `figma-developer-mcp-caching` (primary), fallback to `figma-developer-mcp`. Cache directory: `~/Library/Caches/FigmaMcp/` — set `FIGMA_MCP_CACHE_DIR` env var before invoking MCP tools if the caching server requires it.
+
 ## When to Use
 
 - A Figma link is provided

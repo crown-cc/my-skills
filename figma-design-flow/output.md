@@ -60,7 +60,23 @@ File structure, component tree, reuse strategy, identified gaps.
 
 ### 11. Open Questions
 
-Record ambiguities and inferred behaviors. Explicitly mark assumptions — do not present them as facts.
+Record ambiguities, decision points, and inferred behaviors. Use this format:
+
+```
+### Design Decisions
+
+- **Question:** [what ambiguity or decision was encountered]
+  - **Options:** [alternative approaches that were considered]
+  - **Recommended:** [chosen approach — this is what the document uses]
+  - **Rationale:** [why this recommendation was chosen]
+
+### Unresolved Ambiguities
+
+- **Issue:** [actual ambiguity that needs clarification]
+  - **Assumption:** [what was assumed in this document]
+```
+
+**Note:** All design decisions are made automatically during analysis phase. No confirmation is requested at this stage. Questions are recorded for traceability and potential discussion during implementation.
 
 ---
 

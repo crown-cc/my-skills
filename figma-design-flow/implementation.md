@@ -4,6 +4,18 @@ Activated only after DESIGN MODE is complete and verification has passed. Uses e
 
 ---
 
+## 1. Pre-Implementation Confirmation
+
+Before starting implementation, request user confirmation using openQuestion:
+
+- **Proceed** — begin implementation using the generated documentation
+- **Modify** — user requests changes to the documentation first (update docs, then re-confirm)
+- **Cancel** — end implementation mode
+
+This is the only confirmation point in the workflow. All auto-fix and refinement loops during design mode happen automatically without user interruption.
+
+---
+
 ## Rules
 
 - NEVER call Figma MCP during implementation
