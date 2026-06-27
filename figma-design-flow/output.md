@@ -40,11 +40,11 @@ Exact px values for spacing, padding, margins. Explain spacing relationships and
 
 Per text node: font family, size, weight, line height, letter spacing, alignment.
 
-### 7. Component Mapping Table
+### 7. Component Identification
 
-| Node | Type | Reason |
+| Node | Type | Description |
 
-Types: Shared, Feature, Primitive. Distinguish reusable from feature-specific components.
+Types: Container, Component, Element. Identify UI elements by their visual structure and function in the interface.
 
 ### 8. Interaction Model
 
@@ -54,11 +54,7 @@ Click zones, gestures, scroll areas, hover/active/disabled states.
 
 Map to tokens: colors, spacing, radius, shadow, typography. Mark missing mappings as NEW TOKEN REQUIRED.
 
-### 10. Implementation Plan
-
-File structure, component tree, reuse strategy, identified gaps.
-
-### 11. Open Questions
+### 10. Open Questions
 
 Record ambiguities, decision points, and inferred behaviors. Use this format:
 
@@ -82,4 +78,4 @@ Record ambiguities, decision points, and inferred behaviors. Use this format:
 
 ## Quality Standard
 
-Each section must contain implementation-ready details, not high-level summaries. The document must be detailed enough that an engineer can implement the UI without reopening Figma.
+Each section must contain design-ready details, not high-level summaries. The document must be detailed enough to serve as UI design specification without reopening Figma. Project planning (file structure, implementation strategy, component reuse) is handled separately during spec/task creation.

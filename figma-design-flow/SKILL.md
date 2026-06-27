@@ -7,7 +7,7 @@ description: Use when a Figma link is provided, UI analysis or style verificatio
 
 ## Overview
 
-Converts Figma designs into structured design documentation, implementation blueprints, and style verification reports. Figma (via MCP) is the single source of truth. The skill produces documentation only — no implementation unless explicitly requested.
+Extracts UI design specifications from Figma. Figma (via MCP) is the single source of truth. Documents visual structure, layout, and interaction details only — no project planning, file structure, or implementation strategy.
 
 All state, caching, and snapshot management is delegated to the Figma MCP. Do NOT persist state locally.
 
@@ -31,7 +31,7 @@ Follow each file in order:
 
 1. **Workflow**: [workflow.md](workflow.md) — 7-step MCP-driven pipeline
 2. **Analysis**: [analysis.md](analysis.md) — structured UI extraction rules
-3. **Output**: [output.md](output.md) — exact 10-section document specification
+3. **Output**: [output.md](output.md) — 10-section design specification
 4. **Verify**: [style-check.md](style-check.md) — compare docs against MCP snapshot, auto-fix loop
 5. **Implement**: [implementation.md](implementation.md) — only if user explicitly requests; applies after verification is complete
 
@@ -41,7 +41,7 @@ Follow each file in order:
 
 Figma → Analysis → Documentation → Style Check → Auto-fix loop
 
-Produces `docs/design/figma/<feature>.md`. No code is written.
+Produces `docs/design/figma/<feature>.md` containing UI design specification only (visual structure, layout, interactions). No project planning, file structure, or implementation strategy.
 
 ### IMPLEMENT MODE (manual only)
 

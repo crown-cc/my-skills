@@ -94,17 +94,17 @@ Page: ProfileScreen
 
 ## 5. Spacing & Alignment Spec
 
-| Element | Value |
-|---------|-------|
-| Base grid | 8px |
-| Page horizontal padding | 16px |
-| Section vertical padding | 24px |
-| InfoRow gap (label → value) | 8px |
-| InfoSection row gap | 12px |
-| SettingsRow height | 48px |
-| Avatar size | 96×96px |
-| FAB size | 56×56px |
-| FAB offset (bottom/right) | 16px |
+| Element                     | Value   |
+| --------------------------- | ------- |
+| Base grid                   | 8px     |
+| Page horizontal padding     | 16px    |
+| Section vertical padding    | 24px    |
+| InfoRow gap (label → value) | 8px     |
+| InfoSection row gap         | 12px    |
+| SettingsRow height          | 48px    |
+| Avatar size                 | 96×96px |
+| FAB size                    | 56×56px |
+| FAB offset (bottom/right)   | 16px    |
 
 Spacing rhythm: sections use 24px vertical separation, rows within sections use 12px gap, internal row elements use 8px gap. This creates a consistent 8px-based hierarchy.
 
@@ -112,28 +112,35 @@ Spacing rhythm: sections use 24px vertical separation, rows within sections use 
 
 ## 6. Typography Spec
 
-| Element | Font | Size | Weight | Line Height | Letter Spacing |
-|---------|------|------|--------|-------------|----------------|
-| Header title | Inter | 20px | 600 (semibold) | 28px | 0 |
-| Section header | Inter | 12px | 500 (medium) | 16px | 0.5px |
-| InfoRow label | Inter | 14px | 400 (regular) | 20px | 0 |
-| InfoRow value | Inter | 16px | 400 (regular) | 24px | 0 |
-| Link text | Inter | 14px | 500 (medium) | 20px | 0 |
-| Button text | Inter | 16px | 600 (semibold) | 24px | 0 |
+| Element        | Font  | Size | Weight         | Line Height | Letter Spacing |
+| -------------- | ----- | ---- | -------------- | ----------- | -------------- |
+| Header title   | Inter | 20px | 600 (semibold) | 28px        | 0              |
+| Section header | Inter | 12px | 500 (medium)   | 16px        | 0.5px          |
+| InfoRow label  | Inter | 14px | 400 (regular)  | 20px        | 0              |
+| InfoRow value  | Inter | 16px | 400 (regular)  | 24px        | 0              |
+| Link text      | Inter | 14px | 500 (medium)   | 20px        | 0              |
+| Button text    | Inter | 16px | 600 (semibold) | 24px        | 0              |
 
 ---
 
-## 7. Component Mapping Table
+## 7. Component Identification
 
-| Node | Type | Reason |
-|------|------|--------|
-| BackButton | Primitive | Standard navigation, design system icon button |
-| Avatar | Primitive | Design system avatar component, size variant "lg" |
-| InfoRow | Shared | Used across profile, settings, and checkout screens |
-| SettingsRow | Shared | Used in all settings screens |
-| Toggle | Primitive | Design system toggle component |
-| FAB | Primitive | Design system FAB, variant "primary" |
-| DeleteAccountButton | Feature | Specific to profile screen |
+| Node                | Type       | Description                                     |
+| ------------------- | ---------- | ----------------------------------------------- |
+| ProfileScreen       | Container  | Main page wrapper with vertical scroll         |
+| Header              | Container  | Sticky header with back button and title       |
+| AvatarSection       | Container  | Layout wrapper for avatar and change photo     |
+| Avatar              | Component  | Circular avatar display (96×96px)               |
+| ChangePhotoLink     | Element    | Text link below avatar                          |
+| InfoSection         | Container  | Section wrapper for account details rows       |
+| InfoRow             | Component  | Two-row display with label and value           |
+| SectionHeader       | Element    | Section title text                              |
+| Divider             | Element    | 1px horizontal separator line                   |
+| SettingsSection     | Container  | Section wrapper for settings rows              |
+| SettingsRow         | Component  | Row with icon, label, and action (toggle/chevron) |
+| Toggle              | Component  | On/off switch control                           |
+| DeleteAccountButton | Component  | Destructive action button                       |
+| FAB                 | Component  | Floating action button (56×56px circle)         |
 
 ---
 
@@ -152,46 +159,24 @@ Spacing rhythm: sections use 24px vertical separation, rows within sections use 
 
 ## 9. Design System Mapping
 
-| Design Value | Token | Status |
-|-------------|-------|--------|
-| Background white | `surface.primary` | Matched |
-| Text #1A1A1A | `text.primary` | Matched |
-| Text #6B6B6B | `text.secondary` | Matched |
-| Accent #2563EB | `color.accent.primary` | Matched |
-| Border #E5E5E5 | `border.subtle` | Matched |
-| FAB shadow | `elevation.3` | Matched |
-| Delete red #DC2626 | `color.destructive` | Matched |
-| Avatar background #F3F4F6 | — | NEW TOKEN REQUIRED: `surface.avatar.placeholder` |
-| SettingsRow height 48px | — | NEW TOKEN REQUIRED: `size.settings-row` |
+| Design Value              | Token                  | Status                                           |
+| ------------------------- | ---------------------- | ------------------------------------------------ |
+| Background white          | `surface.primary`      | Matched                                          |
+| Text #1A1A1A              | `text.primary`         | Matched                                          |
+| Text #6B6B6B              | `text.secondary`       | Matched                                          |
+| Accent #2563EB            | `color.accent.primary` | Matched                                          |
+| Border #E5E5E5            | `border.subtle`        | Matched                                          |
+| FAB shadow                | `elevation.3`          | Matched                                          |
+| Delete red #DC2626        | `color.destructive`    | Matched                                          |
+| Avatar background #F3F4F6 | —                      | NEW TOKEN REQUIRED: `surface.avatar.placeholder` |
+| SettingsRow height 48px   | —                      | NEW TOKEN REQUIRED: `size.settings-row`          |
 
 ---
 
-## 10. Implementation Plan
-
-```
-features/profile/
-├── ProfileScreen.tsx
-├── components/
-│   ├── AvatarSection.tsx
-│   ├── InfoSection.tsx
-│   ├── SettingsSection.tsx
-│   └── DangerZone.tsx
-└── hooks/
-    └── useProfileData.ts
-
-shared/components/
-├── InfoRow.tsx       (if not already extracted)
-└── SettingsRow.tsx   (if not already extracted)
-```
-
-Reuse: BackButton, Avatar, Toggle, FAB from design system. InfoRow and SettingsRow should be promoted to shared if used by multiple features (check existing codebase). DeleteAccountButton is profile-specific, build inline.
-
----
-
-## 11. Open Questions
+## 10. Open Questions
 
 - **Inline edit on InfoRow**: The design shows values but no edit affordance. Inferred tap-to-edit — confirm with designer.
 - **Notifications toggle**: Does this call an API immediately or optimistically update? Assumed immediate API call with rollback on failure.
-- **Photo picker**: Is there an existing photo picker flow or does this need to be built? Check codebase for `ImagePicker` or similar.
+- **Photo picker**: What photo picker UI should open? Camera, gallery, or both? Not specified in design.
 - **Delete account flow**: What is the re-authentication method? PIN, biometric, or password? Not specified in design.
 - **Avatar placeholder**: Design shows a gray circle for users without a photo — need the placeholder color token (`surface.avatar.placeholder`).

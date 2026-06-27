@@ -49,13 +49,11 @@ Document: click zones, gestures, scroll areas, hover/active/disabled states.
 
 ---
 
-## 7. Component Architecture Inference (optional)
+## 7. Component Identification
 
-Infer the component file structure from the design hierarchy:
+Identify UI elements by their visual structure and function in the interface.
 
-```
-features/<feature-name>/
-components/<component-name>/
-```
-
-Only include when the structure is clear from the design. Skip if ambiguous.
+Types:
+- **Container** — layout wrapper (sections, grids, frames)
+- **Component** — reusable UI element (buttons, cards, inputs)
+- **Element** — atomic element (text, icons, dividers)
