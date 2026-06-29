@@ -39,10 +39,14 @@ Follow each file in order:
 
 ### DESIGN MODE (default)
 
-Figma → Analysis → Documentation → Style Check → Auto-fix loop
+Figma → Analysis → Documentation → Style Check → Auto-fix loop → 2 confirmation points
 
 Produces `docs/design/figma/<feature>.md` containing UI design specification only (visual structure, layout, interactions). No project planning, file structure, or implementation strategy.
 
-### IMPLEMENT MODE (manual only)
+Ends with exactly two confirmation points (see [workflow.md](workflow.md) step 7):
+1. **Open Questions** — review collected design questions
+2. **Next-Step Decision** — choose IMPLEMENT MODE or hand off to superpowers specs/plans
 
-Activated only when the user explicitly requests "implement." Follows [implementation.md](implementation.md) strictly — no MCP calls, no re-analysis, use existing docs and design system only.
+### IMPLEMENT MODE
+
+Entered only via Confirmation 2 (Next-Step Decision). Follows [implementation.md](implementation.md) strictly — no MCP calls, no re-analysis, use existing docs and design system only.

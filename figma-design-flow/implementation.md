@@ -1,20 +1,6 @@
 # Implementation Mode (Strict)
 
-Activated only after DESIGN MODE is complete and verification has passed. Uses existing documentation and design system — never re-queries Figma.
-
----
-
-## 1. Pre-Implementation Confirmation
-
-Before starting implementation, request user confirmation using openQuestion:
-
-- **Proceed** — begin implementation using the generated documentation
-- **Modify** — user requests changes to the documentation first (update docs, then re-confirm)
-- **Cancel** — end implementation mode
-
-This is the only confirmation point in the workflow. All auto-fix and refinement loops during design mode happen automatically without user interruption.
-
----
+Entered only when the user chooses "Implement" at workflow.md step 7 (Confirmation 2). Uses existing documentation and design system — never re-queries Figma.
 
 ## Rules
 

@@ -72,7 +72,7 @@ Record ambiguities, decision points, and inferred behaviors. Use this format:
   - **Assumption:** [what was assumed in this document]
 ```
 
-**Note:** All design decisions are made automatically during analysis phase. No confirmation is requested at this stage. Questions are recorded for traceability and potential discussion during implementation.
+**Note:** All design decisions are made automatically during analysis phase — questions are not asked mid-workflow. Collected Open Questions are surfaced to the user at the end of the design workflow for review and decisions.
 
 ---
 
